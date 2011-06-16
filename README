@@ -1,0 +1,4 @@
+My personal version of OpenJPEG.
+
+Visual C++ 2010
+For others who may be interested, this build includes a full Visual C++ 2010 compatible build environment which was hand coded to correspond to the platform. I don't think I've made any actual changes to the OpenJPEG code itself to make this work.
