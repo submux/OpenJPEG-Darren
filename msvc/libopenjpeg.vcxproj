@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libopenjpeg\bio.c" />
+    <ClCompile Include="..\libopenjpeg\cio.c" />
+    <ClCompile Include="..\libopenjpeg\dwt.c" />
+    <ClCompile Include="..\libopenjpeg\event.c" />
+    <ClCompile Include="..\libopenjpeg\image.c" />
+    <ClCompile Include="..\libopenjpeg\j2k.c" />
+    <ClCompile Include="..\libopenjpeg\j2k_lib.c" />
+    <ClCompile Include="..\libopenjpeg\jp2.c" />
+    <ClCompile Include="..\libopenjpeg\jpt.c" />
+    <ClCompile Include="..\libopenjpeg\mct.c" />
+    <ClCompile Include="..\libopenjpeg\mqc.c" />
+    <ClCompile Include="..\libopenjpeg\openjpeg.c" />
+    <ClCompile Include="..\libopenjpeg\pi.c" />
+    <ClCompile Include="..\libopenjpeg\raw.c" />
+    <ClCompile Include="..\libopenjpeg\t1.c" />
+    <ClCompile Include="..\libopenjpeg\t2.c" />
+    <ClCompile Include="..\libopenjpeg\tcd.c" />
+    <ClCompile Include="..\libopenjpeg\tgt.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\libopenjpeg\bio.h" />
+    <ClInclude Include="..\libopenjpeg\cio.h" />
+    <ClInclude Include="..\libopenjpeg\dwt.h" />
+    <ClInclude Include="..\libopenjpeg\event.h" />
+    <ClInclude Include="..\libopenjpeg\fix.h" />
+    <ClInclude Include="..\libopenjpeg\image.h" />
+    <ClInclude Include="..\libopenjpeg\int.h" />
+    <ClInclude Include="..\libopenjpeg\j2k.h" />
+    <ClInclude Include="..\libopenjpeg\j2k_lib.h" />
+    <ClInclude Include="..\libopenjpeg\jp2.h" />
+    <ClInclude Include="..\libopenjpeg\jpt.h" />
+    <ClInclude Include="..\libopenjpeg\mct.h" />
+    <ClInclude Include="..\libopenjpeg\mqc.h" />
+    <ClInclude Include="..\libopenjpeg\openjpeg.h" />
+    <ClInclude Include="..\libopenjpeg\opj_includes.h" />
+    <ClInclude Include="..\libopenjpeg\opj_malloc.h" />
+    <ClInclude Include="..\libopenjpeg\pi.h" />
+    <ClInclude Include="..\libopenjpeg\raw.h" />
+    <ClInclude Include="..\libopenjpeg\t1.h" />
+    <ClInclude Include="..\libopenjpeg\t1_luts.h" />
+    <ClInclude Include="..\libopenjpeg\t2.h" />
+    <ClInclude Include="..\libopenjpeg\tcd.h" />
+    <ClInclude Include="..\libopenjpeg\tgt.h" />
+    <ClInclude Include="opj_config.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{68DB1D78-3097-47E6-95C2-79AB3C60CDE1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libopenjpeg</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(SolutionDir)$(Configuration)\intermediate\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(SolutionDir)$(Configuration)\intermediate\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,104 @@
+
+How to build and install openjpeg binaries
+==========================================
+
+UNIX/LINUX similar systems
+--------------------------
+
+1) Using configure tools
+
+To build from top-level directory, you can simply type: 
+  ./bootstrap.sh
+  ./configure
+  make
+
+To keep all build files in a separate directory, you can type instead: 
+  ./bootstrap.sh
+  mkdir build
+  cd build
+  ../configure
+  make
+
+To install:
+  sudo make install
+  
+To clean:
+  make clean
+  make distclean
+
+To build doc (requires 'doxygen' to be found on your system):
+(this will create an html directory in TOP_LEVEL/doc)
+  make doc
+
+Main './configure' options (type './configure --help' for more details)
+  '--enable-mj2'
+  '--enable-jpwl'
+  '--prefix=/path/to/install/directory' (example : '--prefix=$PWD/installed')
+  '--enable-debug' (default : disabled)
+
+You can also specify your own CFLAGS and LDFLAGS with (for example):
+  CFLAGS="-O3 -pipe" LDFLAGS="-Wl,-s" ./configure
+
+
+2) Using cmake (see www.cmake.org)
+
+Type:
+  cmake .
+  make
+
+If you are root:
+  make install
+  make clean
+
+else:
+  sudo make install
+  make clean
+  
+To build the Doxygen documentation (Doxygen needs to be found on the system):
+(A 'html' directory is generated in the 'doc' directory)
+  make doc
+
+Binaries are located in the 'bin' directory.
+
+Main available cmake flags:
+* To specify the install path: '-DCMAKE_INSTALL_PREFIX=/path'
+* To build the shared libraries and links the executables against it: '-DBUILD_SHARED_LIBS:bool=on' (default: 'ON')
+  Note: when using this option, static libraries are not built and executables are dynamically linked.
+* To build the CODEC executables: '-DBUILD_CODEC:bool=on' (default: 'ON')
+* To build the MJ2 executables: '-DBUILD_MJ2:bool=on' (default: 'OFF')
+* To build the JPWL executables and JPWL library: '-DBUILD_JPWL:bool=on' (default: 'OFF')
+* To enable testing (and automatic result upload to http://my.cdash.org/index.php?project=OPENJPEG):
+    cmake . -DBUILD_TESTING:BOOL=ON -DJPEG2000_CONFORMANCE_DATA_ROOT:PATH=/path/to/your/JPEG2000/test/files
+    make
+    make Experimental
+  Note : JPEG2000 test files are available here : http://www.crc.ricoh.com/~gormish/jpeg2000conformance/
+
+3) Manually using Makefile.nix:
+- Manually edit the config.nix file
+- Manually create an opj_config.h file from opj_config.h.in.user
+  and edit this opj_config.h
+- Then : (if 'WITH_JPWL' is defined in config.nix)
+    make -f Makefile.nix all
+    make -f Makefile.nix install
+    make -f Makefile.nix clean
+    make -f Makefile.nix uninstall
+- If 'WITH_JPWL' is not defined in config.nix
+  and you want to clean/compile/install/uninstall JPWL:
+  call the respective target in the respective directory.
+
+MACOSX
+------
+
+The same building procedures as above (autotools and cmake) work for MACOSX.
+The xcode project file can also be used.
+
+If it does not work, try adding the following flag to the cmake command : 
+  '-DCMAKE_OSX_ARCHITECTURES:STRING=i386'
+
+WINDOWS
+-------
+
+If you're using cygwin or MinGW, the same procedures as for Unix can be used. 
+
+Otherwise you can use cmake to generate project files for the IDE you are using (VC2010, etc).
+Type 'cmake --help' for available generators on your platform.
